@@ -25,12 +25,13 @@
 \usepackage{color}
 \usepackage{booktabs}
 \usepackage{textcomp}
+\usepackage[utf8]{inputenc}
 % Some optional stuff you might like/need.
 \usepackage{microtype} % Improved Tracking and Kerning
 % \usepackage[all]{hypcap}  % Fixes bug in hyperref caption linking
 \usepackage{ccicons}  % Cite your images correctly!
 % \usepackage[utf8]{inputenc} % for a UTF8 editor only
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 % If you want to use todo notes, marginpars etc. during creation of your draft document, you
 % have to enable the "chi_draft" option for the document class. To do this, change the very first
 % line to: "\documentclass[chi_draft]{sigchi}". You can then place todo notes by using the "\todo{...}"
@@ -99,7 +100,7 @@
 \numberofauthors{3}
 \author{%
   \alignauthor{Daniel Graf\\
-    \affaddr{Hochschule München}\\
+    \affaddr{Hochschule MÃ¼nchen}\\
     \affaddr{MÃ¼nchen}\\
     \email{graf12@hm.edu}}\\
   \alignauthor{Ludwig Wagner\\
@@ -134,13 +135,13 @@ jeder sucht Literatur zu diesem Thema und beschreibt Ergebnis in einem bis zwei 
 \section{Methodik}
  
 \subsection{Idee beschreiben}
-Kernpunkt des Konzept ist die Erschaffung eines parallelen Fake-Netzwerkes. Dadurch soll verhindert werden, dass ein Angreifer in das Netzwerk gelangt oder Informationen über die Mitglieder des Netzwerkes gewinnen kann. Im folgenden wird der Aufbau des Netzwerkes anhand eines Login-Vorgangs beschrieben. \\
-Auf der Startseite des Netzwerkes werden die Nutzer zunächst aufgefordert E-Mail Adresse und Passwort einzugeben, bevor sie zum zweiten Schritt der Authentifizierung gelangen. Hierfür muss jeder Nutzer bei der Registrierung eines, oder mehrere Authentifizierungsverfahren hinterlegen. Zur Auswahl stehen einen Authentifizierung mittels eines Codes, welcher per SMS zugesandt wird, mittels Push-Benachrichtigung am Mobiltelefon oder mittels biometrischer Daten. Unabhängig davon, ob E-Mail Adresse, Passwort, die Wahl des Verfahrens oder die Durchführung des Verfahrens korrekt waren, gelangt der Nutzer in das Netzwerk. Doch nur im Falle eines vollständig korrekten Vorgangs befindet sich der Nutzer in seinem Account im "echten" Netzwerk. Andernfalls gelangt der Nutzer in ein täuschend echt aussehendes Fake-Profil, welches nur vom Inhaber als solches enttarnt werden kann. Der Angreifer erfährt dadurch weder ob seine eingegebenen Angaben korrekt waren bzw. welche nicht korrekt waren, noch kann er sich sicher sein, ob er im echten Netzwerk ist. Sämtliche, für ihn sichtbaren Informationen sind folglich nicht verifizierbar und daher nahezu wertlos. \\
-Die größte Herausforderung bei der Umsetzung des Konzeptes stellt die Generierung des Fake-Netzwerkes dar. Hierfür wurden 4 unterschiedliche Umsetzungsvarianten definiert, welche im Folgenden beschrieben werden. \\
-In der ersten Variante, muss jeder Nutzer bei der Registrierung neben seinem echten Profil auch ein Fake Profil anlegen. Welche Informationen er hierfür verwendet, ist ihm überlassen. BILD\\
-In der zweiten Variante erstellt der Nutzer lediglich sein echtes Profil. Er kann jedoch für jede Information, beispielsweise dem Namen, seinem Alter oder dem Profilbild durch setzen eines Hakens entscheiden, ob diese Information für die Erstellung des Fake-Profils verwendet werden darf, oder nicht. Restliche Daten werden durch das System zufällig generiert.  BILD \\
-In der dritten Variante werden alle Fake-Profile automatisch generiert. Die Nutzer können den Prozess hierbei nicht beeinflussen. BILD \\
-In der vierten Variante werden die Fake-Profile, analog zu Variante 3 automatisch generiert. Hierbei wird der Nutzer jedoch aufgefordert Bilder für die Fake-Profil Generierung zur Verfügung zu stellen. Dadurch soll erreicht werden, dass die Fake-Profile für einen Angreifer authentischer Wirken. BILD \\
+Kernpunkt des Konzept ist die Erschaffung eines parallelen Fake-Netzwerkes. Dadurch soll verhindert werden, dass ein Angreifer in das Netzwerk gelangt oder Informationen Ã¼ber die Mitglieder des Netzwerkes gewinnen kann. Im folgenden wird der Aufbau des Netzwerkes anhand eines Login-Vorgangs beschrieben. \\
+Auf der Startseite des Netzwerkes werden die Nutzer zunchst aufgefordert E-Mail Adresse und Passwort einzugeben, bevor sie zum zweiten Schritt der Authentifizierung gelangen. HierfÃ¼r muss jeder Nutzer bei der Registrierung eines, oder mehrere Authentifizierungsverfahren hinterlegen. Zur Auswahl stehen einen Authentifizierung mittels eines Codes, welcher per SMS zugesandt wird, mittels Push-Benachrichtigung am Mobiltelefon oder mittels biometrischer Daten. UnabhÃ¤ngig davon, ob E-Mail Adresse, Passwort, die Wahl des Verfahrens oder die DurchfÃ¼hrung des Verfahrens korrekt waren, gelangt der Nutzer in das Netzwerk. Doch nur im Falle eines vollstÃ¤ndig korrekten Vorgangs befindet sich der Nutzer in seinem Account im "echten" Netzwerk. Andernfalls gelangt der Nutzer in ein tÃ¤uschend echt aussehendes Fake-Profil, welches nur vom Inhaber als solches enttarnt werden kann. Der Angreifer erfÃ¤hrt dadurch weder ob seine eingegebenen Angaben korrekt waren bzw. welche nicht korrekt waren, noch kann er sich sicher sein, ob er im echten Netzwerk ist. SÃ¤mtliche, fÃ¼r ihn sichtbaren Informationen sind folglich nicht verifizierbar und daher nahezu wertlos. \\
+Die grÃ¶ÃŸte Herausforderung bei der Umsetzung des Konzeptes stellt die Generierung des Fake-Netzwerkes dar. HierfÃ¼r wurden 4 unterschiedliche Umsetzungsvarianten definiert, welche im Folgenden beschrieben werden. \\
+In der ersten Variante, muss jeder Nutzer bei der Registrierung neben seinem echten Profil auch ein Fake Profil anlegen. Welche Informationen er hierfÃ¼r verwendet, ist ihm Ã¼berlassen. BILD\\
+In der zweiten Variante erstellt der Nutzer lediglich sein echtes Profil. Er kann jedoch fÃ¼r jede Information, beispielsweise dem Namen, seinem Alter oder dem Profilbild durch setzen eines Hakens entscheiden, ob diese Information fÃ¼r die Erstellung des Fake-Profils verwendet werden darf, oder nicht. Restliche Daten werden durch das System zufÃ¤llig generiert.  BILD \\
+In der dritten Variante werden alle Fake-Profile automatisch generiert. Die Nutzer kÃ¶nnen den Prozess hierbei nicht beeinflussen. BILD \\
+In der vierten Variante werden die Fake-Profile, analog zu Variante 3 automatisch generiert. Hierbei wird der Nutzer jedoch aufgefordert Bilder fÃ¼r die Fake-Profil Generierung zur VerfÃ¼gung zu stellen. Dadurch soll erreicht werden, dass die Fake-Profile fÃ¼r einen Angreifer authentischer Wirken. BILD \\
 
 \subsection{Fokusgruppe}
 Aufbau der Umfrage, des Experimentes... 
