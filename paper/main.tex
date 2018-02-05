@@ -140,7 +140,7 @@ ISBN: 978-1-4799-6364-5 (IEEE Passwords are Dead)
 
  
 \section{Beschreibung des Konzepts}
-
+\label{Konzept}
 Kernpunkt des Konzept ist die Erschaffung eines parallelen Fake-Netzwerkes. Dadurch soll verhindert werden, dass ein Angreifer in das Netzwerk gelangt oder Informationen über die Mitglieder des Netzwerkes gewinnen kann. Die Sicherheit wird somit durch Verwirrung erzeugt. Im folgenden wird der Aufbau des Netzwerkes anhand eines Login-Vorgangs beschrieben. \\
 Auf der Startseite des Netzwerkes werden die Nutzer zunächst aufgefordert E-Mail Adresse und Passwort einzugeben, bevor sie zum zweiten Schritt der Authentifizierung gelangen. Hierfür muss jeder Nutzer bei der Registrierung eines, oder mehrere Authentifizierungsverfahren hinterlegen. Zur Auswahl stehen beispielsweise ein Code, welcher per SMS zugesandt wird, eine Push-Benachrichtigung am Mobiltelefon oder die Verwendung biometrischer Daten (z.B Fingerabdruck).\\
 Unabhängig davon, ob E-Mail Adresse, Passwort, die Wahl des zusätzlichen Verfahrens oder die Durchführung des gewählten Verfahrens korrekt waren, gelangt der Nutzer in das Netzwerk. Doch nur im Falle eines vollständig korrekten Authentifizierungsvorgangs befindet sich der Nutzer in seinem Account im "echten" Netzwerk. Andernfalls gelangt der Nutzer in ein täuschend echt aussehendes Fake-Profil, welches nur vom Inhaber als solches enttarnt werden kann. \todo[inline]{Bild des Loginvorgangs} Der Angreifer erfährt dadurch weder ob seine eingegebenen Angaben korrekt waren bzw. welche nicht korrekt waren, noch kann er sich sicher sein, ob er im echten Netzwerk ist. Sämtliche, für ihn sichtbaren Informationen sind folglich nicht verifizierbar und daher nahezu wertlos. \\
@@ -166,26 +166,49 @@ In Variante 3 verläuft der gesamte Vorgang automatisiert. Der User hat keinen E
 	\label{fig:Umsetzung3}
 \end{figure}
 \\
-Variante 4 stellt eine Kombination aus den bisherigen drei Varianten dar. Die Fake-Profile werden, analog zu Variante 3 automatisch generiert. Es besteht jedch für jeden Nutzer die Möglichkeit Daten, wie beispielsweise Bilder für die Fake-Profil Generierung zur Verfügung zu stellen. Somit ist einserseits kein Nutzer gezwungen Daten bereit zu stellen, andererseits können authentischere Fake-Profile als z.B bei Variante 3 generiert werden.  
+Variante 4 stellt eine Kombination aus den bisherigen drei Varianten dar. Die Fake-Profile werden, analog zu Variante 3 automatisch generiert. Es besteht jedoch für jeden Nutzer die Möglichkeit Daten, wie beispielsweise Bilder für die Fake-Profil Generierung zur Verfügung zu stellen. Somit ist einerseits kein Nutzer gezwungen Daten bereit zu stellen, andererseits können authentischere Fake-Profile als z.B bei Variante 3 generiert werden. Eine Veranschaulichung dieser Umsetzungsvariante ist am Beispiel von Profilbildern in Abbildung \ref{fig:Umsetzung4} aufgeführt. 
 \begin{figure}[htbp]
-	\includegraphics[width=0.8\columnwidth]{/Umsetzung4.png}
+	\includegraphics[width=\columnwidth]{/Umsetzung4.png}
 	\caption{Fake-Profile werden vom System generiert. Der User kann freiwillig Daten zur Verfügung stellen.}
 	\label{fig:Umsetzung4}
 \end{figure}
 \section{Methodik}
-
+Für eine Diskussion, welche der Varianten bei Nutzern bevorzugt werden könnte und bei welchen Teilaspekten des Konzepts es möglicherweise Probleme bei der Umsetzung geben könnte, wurde eine Fokus Gruppe organisiert. Basierend auf den Ergebnissen der Fokus Gruppe wurden interessante Aspekte im Zuge einer Umfrage qualitativ vertieft. Sowohl für die Fokus Gruppe, als auch für die Umfrage wurden ausschließlich Personen in Betracht gezogen, welche mindestens ein Soziales Netzwerk aktiv nutzen. Dadurch soll eine erhöhte Vergleichbarkeit zwischen dem Sicherheitskonzept herkömmlicher Netzwerke und dem in Kapitel \ref{Konzept} beschriebenen Konzept erzielt werden. \todo[inline]{Einleitungssatz zur Identifikation der Herausforderungen, Handlungsempfehlung, Ergebnisse der Gruppe/Befragung}
 \subsection{Fokusgruppe}
-Aufbau der Umfrage, des Experimentes... 
+Die Fokus Gruppe bestand aus dem Projekt Team und 8 Studenten der Hochschule München. Zu Beginn der Fokus Gruppe wurden den Teilnehmern allgemeine Fragen zu sozialen Netzwerken gestellt und über potenzielle Schwachstellen bzgl. Sicherheit in vorhandenen Netzwerken diskutiert. Im zweiten Schritt erfolgte die Erläuterung der Konzeptidee und eine anschließende Diskussion bzgl. Machbarkeit, Usability und Sicherheit. Anschließend wurden den Teilnehmern stufenweise alle 4 Umsetzungsvarianten erläutert. Nach jeder Variante erfolgte erneut eine (kurze) Diskussion bezüglich der Machbarkeit, Usability und Sicherheit der jeweiligen Variante. Abschließend erfolgte eine freie Diskussion über die nicht berücksichtigten Aspekte und es wurden weitere Umsetzungsideen erfragt.
+ 
 \subsection{Einzelbefragungen}
-Aufbau der Umfrage, des Experimentes... 
+Insbesondere Aspekte, bei denen Uneinigkeit zwischen den Teilnehmern der Fokus Gruppe geherrscht hat, wurden im Zuge von Einzelbefragungen vertieft. Hierfür wurden insgesamt 9 Befragungen durchgeführt. Der gesamte Fragebogen ist im Anhang angefügt. \todo[inline]{Fragebogen in Anhang}
 
 \subsection{Ergebnisse}
-auch das Mindmap reinnehmen... Oder CLusterbildung... usw.
+In Abbildung \ref{fig:MindMap2} ist ein Ausschnitt aus den Ergebnissen der Fokus Gruppe und der anschließenden Einzelbefragungen zu sehen. Die gesamten Ergebnisse sind in einem MindMap im Anhang aufgeführt. Die wichtigsten Aspekte sind im folgenden genauer beschrieben. \todo[inline]{Mindmap einfügen UND aufbereiten}
+\begin{figure}[htbp]
+	\includegraphics[width=0.8\columnwidth]{/Social-Networks_2.png}
+	\caption{Ausschnitt aus den Ergebnissen von Fokus Gruppe und Einzelbefragung}
+	\label{fig:MindMap2}
+\end{figure}
+\todo[inline]{Testen ob Mindmap lesbar ist, oder weiter gekürzt werden muss}
+\begin{enumerate}
+	\item Für die Usability des Netzwerkes ist es essenziell zu definieren, wann eine Authentifizierung des Nutzers erforderlich ist. Beispielsweise bei wiederholtem Login vom gleichen Gerät sagen die Teilnehmer von Fokus Gruppe und Umfrage einstimmig, darf keine erneute Authentifizierung gefordert werden. 
+	\item Viele Teilnehmer sehen nicht das Sicherheitskonzept als ausschlaggebend, ob sie sich in einem Netzwerk registrieren würden. Andere Aspekte, wie Bekanntheit des Netzwerkes und Anzahl der registrierten Personen, insbesondere der jeweiligen Freunde, wird bei der Wahl eines Netzwerkes als bedeutend wichtiger angesehen.
+	\item Der tiefere Sinn dieses Sicherheitskonzeptes ist insbesondere für Personen ohne technische Kenntnisse meist nicht zu verstehen. Folglich wird nur der Mehraufwand bei der Registrierung oder beim Login in das Netzwerk betrachtet. Die Mehrheit der Personen ohne technischen Hintergrund empfangen folglich den Mehraufwand als unnötig. Für die Mehrheit der Personen mit technischem Hintergrund war das Ziel des Konzeptes offensichtlich. Diese wären auch mehrheitlich bereit einen gewissen Mehraufwand für eine erhöhte Sicherheit in Kauf zu nehmen. Andererseits beurteilte die Mehrheit der Teilnehmer, unabhängig vom technischen Hintergrund, die Sicherheit bestehender sozialer Netzwerke als nicht ausreichend.
+	\item Viele Teilnehmer gaben an, dass sie nicht bereit wären Daten für die Erstellung von Fake Profilen zur Verfügung zu stellen. Darüber hinaus wären auch nur wenige Teilnehmer bereit Zeit für die Erstellung und Verwaltung von Fake-Profilen zu investieren. Ca. 20\% der Teilnehmer wären weder bereit Daten bereit zu stellen, noch Zeit für die Erstellung der Fake-Profile zu investieren. 
+	\item Für die Umsetzung des Konzeptes ist zu klären, wie bei Passwortverlust vorgegangen werden soll. Insbesondere ein Zurücksetzen des Passworts über eine E-Mail wurde von vielen Teilnehmern als kritisch angesehen, da man die sicherere Authentifizierung in das Netzwerk und eine "einfache" Authentifizierung mittels E-Mail und Passwort aushebeln könnte.
+	\item Eine genaue Auflistung aller Verfahren für den zweiten Authentifizierungsschritt ist zu definieren. Viele Teilnehmer sehen eine Zwei-Wege Authentifizierung über ein Gerät, in der Regel das Mobiltelefon, als kritisch.
+	\item Insbesondere der Umgang mit den Fake-Profilen führte zu vielen Fragen und Diskussionen. Diese werden im Abschnitt \ref{Diskussion} näher erläutert.
+\end{enumerate}
 
 \subsection{Diskussion der Herausforderungen bei der Umsetzung des Konzepts}
-Ergebnisse von Fokusgruppe + Einzelbefragungen, Diskussion der wichtigsten Aspekte  
+\label{Diskussion}
+\todo[inline]{textErgebnisse von Fokusgruppe + Einzelbefragungen, Diskussion der wichtigsten Aspekte
+c.	Können gezielt Fake Profile angesehen werden? (z.B auch über Google?)
+d.	Fake Profile können nicht so „echt“ sein, dass es Person die mich kennt nicht enttarnen kann
+e.	Was geschieht mit den Handlungen, die im Fake Profil getätigt werden? Sowohl z.B das Anschrieben anderer, als auch Posten von Neuigkeiten oder Änderungen im Profil -> was wird gespeichert?, Vor- und Nachteile der einzelnen Varianten usw.  }
 \subsection{Handlungsempfehlungen}
-Lösungsansätze der vorher beschriebenen Probleme vorstellen. + Diskussion der Umsetzbarkeit
+\todo[inline]{Lösungsansätze der vorher beschriebenen Probleme vorstellen. + Diskussion der Umsetzbarkeit
+Paper: Aspekte die berücksichtigt werden müssen damit man es bauen kann bzw. Empfehlungen zum bauen des Projekts (Bewertung des Konzept im Paper)
+Paper: Ausarbeitung welche Teilkonzepte am erfolgversprechendsten sind, welche sind nicht machbar}
+
 \subsubsection{Speichern des Logins}
 Mechanismen, die es erlauben Logins temporär zu speichern sind State of The Art. Diese Mechanismen müssen auch bei diesem Konzept angewendet werden um eine akzeptable Usability zu gewährleisten.
 \subsubsection{Integration in ein bestehendes Sozial Network statt Entwicklung eines neuen}
