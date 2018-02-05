@@ -17,7 +17,7 @@
 
 % Load basic packages
 \usepackage{balance}  % to better equalize the last page
-\usepackage{graphics} % for EPS, load graphicx instead 
+\usepackage{graphicx} % for EPS, load graphicx instead 
 \usepackage{txfonts}
 \usepackage{mathptmx}
 \usepackage[pdftex]{hyperref}
@@ -26,6 +26,9 @@
 \usepackage{textcomp}
 \usepackage{microtype} % Improved Tracking and Kerning
 \usepackage{ccicons}  % Cite your images correctly!
+\usepackage{float}
+\graphicspath{{figures/}}
+
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -113,48 +116,62 @@
 \maketitle
 
 \begin{abstract}
-% In der heutigen Zeit gibt es viele verschiedene Authentifizierungsverfahren, die den Menschen vertraut sind. Der Mensch nutzt heute verschiedene Plattformen und Devices um Informationen aufzubewahren oder mit anderen Personen zu teilen. Der Zugang zu diesen Daten muss durch Authentifizierungsverfahren bestmöglich geschützt werden. Die am häufigsten verwendeten Methoden sind E-Mail Adresse und Passwort. Bei zahlreichen Onlineplattformen, wie beispielsweise Yahoo, SchülerVZ oder Sony wurden Millionen Kundendatensätze gestohlen und im Darknet veröffentlicht. Somit fehlen Angreifern lediglich die Passwörter um in die Accounts zu gelangen. Angreifer versuchen häufig diese durch BruteForce Angriffe zu ermitteln. Dies ist möglich, da der Angreifer bei fehlerhaften Login Informationen informiert wird. Um dies zu verhindern wurde ein Konzept für einen Authentifizierungsvorgang entwickelt, bei dem der Angreifer genau diese Informationen nicht erhält. Das Konzept wurde für Social Networks ausgelegt, ist jedoch vielseitig, beispielsweise auch für E-Mail Accounts, verwendbar. Bei einem fehlgeschlagenen Authentifizierungsvorgang wird ein erfolgreicher Login, durch die Anzeige eines täuschend echt aussehenden Fake-Kontos, vorgetäuscht. Für die Umsetzung des Konzepts wurden verschiedene Handlungsempfehlungen erarbeitet und limitierende Faktoren aufgezeigt. Basierend auf diesen Aspekten erfolgt eine Bewertung des Konzepts hinsichtlich Sicherheit, Umsetzbarkeit und Benutzbarkeit. 
-% 
-%
-%\todo[inline]{Paper: Aspekte die berücksichtigt werden müssen damit man es bauen kann bzw. Empfehlungen zum bauen des Projekts (Bewertung des Konzept im Paper)
-%	Paper: Ausarbeitung welche Teilkonzepte am erfolgversprechendsten sind, welche sind nicht machbar; AUS BENUTZERSICHT}
-%  KONZEPT dagegen ...   Durch ein geschicktes Konzept wird dieser Angriffsvektor unterbunden. Konzept ursprünglich für Social Network jedoch vielseitig verwendbar
-%Es lohnt sich nicht ein eigenes Netzwerk mit dem Konzept zu entwickeln
-%Viele Leute sind nicht bereit
+In der heutigen Zeit gibt es viele verschiedene Authentifizierungsverfahren, die den Menschen vertraut sind. Der Mensch nutzt heute verschiedene Plattformen und Devices um Informationen aufzubewahren oder mit anderen Personen zu teilen. Der Zugang zu diesen Daten muss durch Authentifizierungsverfahren bestmöglich geschützt werden. Die am häufigsten verwendeten Methoden sind E-Mail Adresse und Passwort. Bei zahlreichen Onlineplattformen, wie beispielsweise Yahoo, SchülerVZ oder Sony wurden Millionen Kundendatensätze gestohlen und im Darknet veröffentlicht. Somit fehlen Angreifern lediglich die Passwörter um in die Accounts zu gelangen. Angreifer versuchen häufig diese durch BruteForce Angriffe zu ermitteln. Dies ist möglich, da der Angreifer bei fehlerhaften Login Informationen informiert wird. Um dies zu verhindern wurde ein Konzept für einen Authentifizierungsvorgang entwickelt, bei dem der Angreifer genau diese Informationen nicht erhält. Das Konzept wurde für Social Networks ausgelegt, ist jedoch vielseitig, beispielsweise auch für E-Mail Accounts, verwendbar. Bei einem fehlgeschlagenen Authentifizierungsvorgang wird ein erfolgreicher Login, durch die Anzeige eines täuschend echt aussehenden Fake-Kontos, vorgetäuscht. Für die Umsetzung des Konzepts wurden verschiedene Handlungsempfehlungen erarbeitet und limitierende Faktoren aufgezeigt. Basierend auf diesen Aspekten erfolgt eine Bewertung des Konzepts hinsichtlich Sicherheit, Umsetzbarkeit und Benutzbarkeit. 
+\todo[inline]{Paper: Aspekte die berücksichtigt werden müssen damit man es bauen kann bzw. Empfehlungen zum bauen des Projekts (Bewertung des Konzept im Paper)
+	Paper: Ausarbeitung welche Teilkonzepte am erfolgversprechendsten sind, welche sind nicht machbar; AUS BENUTZERSICHT}
+  KONZEPT dagegen ...   Durch ein geschicktes Konzept wird dieser Angriffsvektor unterbunden. Konzept ursprünglich für Social Network jedoch vielseitig verwendbar
+Es lohnt sich nicht ein eigenes Netzwerk mit dem Konzept zu entwickeln
+Viele Leute sind nicht bereit
 \end{abstract}
 
-%\category{H.5.m.}{Information Interfaces and Presentation
-%  (e.g. HCI)}{Miscellaneous} \category{See
-%  \url{http://acm.org/about/class/1998/} for the full list of ACM
-%  classifiers. This section is required.}{}{}
-%
-%\keywords{\plainkeywords}
+\category{H.5.m.}{Information Interfaces and Presentation
+  (e.g. HCI)}{Miscellaneous} \category{See
+  \url{http://acm.org/about/class/1998/} for the full list of ACM
+  classifiers. This section is required.}{}{}
 
-\section{Einlüitung}
+\keywords{\plainkeywords}
+
+\section{Einleitung}
 Einleitung mit einer Statistik über Angriffe und Sicherheitslücken aktueller Social Media Plattformen, Identifikation des Problems bei aktuellen Authentifizierungsverfahren (Der Angreifer weiss, dass Login fehlgeschlagen ist)
 
 \section{Weiterführende Literatur}
-%jeder sucht Literatur zu diesem Thema und beschreibt Ergebnis in einem bis zwei Sätzen. Was haben andere rausgefunden?
-%ISBN: 978-1-4799-6364-5 (IEEE Passwords are Dead)
+jeder sucht Literatur zu diesem Thema und beschreibt Ergebnis in einem bis zwei Sätzen. Was haben andere rausgefunden?
+ISBN: 978-1-4799-6364-5 (IEEE Passwords are Dead)
 
  
 \section{Beschreibung des Konzepts}
 
-Kernpunkt des Konzept ist die Erschaffung eines parallelen Fake-Netzwerkes. Dadurch soll verhindert werden, dass ein Angreifer in das Netzwerk gelangt oder Informationen über die Mitglieder des Netzwerkes gewinnen kann. Im folgenden wird der Aufbau des Netzwerkes anhand eines Login-Vorgangs beschrieben. \\
-Auf der Startseite des Netzwerkes werden die Nutzer zunächst aufgefordert E-Mail Adresse und Passwort einzugeben, bevor sie zum zweiten Schritt der Authentifizierung gelangen. Hierfür muss jeder Nutzer bei der Registrierung eines, oder mehrere Authentifizierungsverfahren hinterlegen. Zur Auswahl stehen einen Authentifizierung mittels eines Codes, welcher per SMS zugesandt wird, mittels Push-Benachrichtigung am Mobiltelefon oder mittels biometrischer Daten. Unabhängig davon, ob E-Mail Adresse, Passwort, die Wahl des Verfahrens oder die Durchführung des Verfahrens korrekt waren, gelangt der Nutzer in das Netzwerk. Doch nur im Falle eines vollständig korrekten Vorgangs befindet sich der Nutzer in seinem Account im "echten" Netzwerk. Andernfalls gelangt der Nutzer in ein täuschend echt aussehendes Fake-Profil, welches nur vom Inhaber als solches enttarnt werden kann. Der Angreifer erfährt dadurch weder ob seine eingegebenen Angaben korrekt waren bzw. welche nicht korrekt waren, noch kann er sich sicher sein, ob er im echten Netzwerk ist. Sämtliche, für ihn sichtbaren Informationen sind folglich nicht verifizierbar und daher nahezu wertlos. \\
+Kernpunkt des Konzept ist die Erschaffung eines parallelen Fake-Netzwerkes. Dadurch soll verhindert werden, dass ein Angreifer in das Netzwerk gelangt oder Informationen über die Mitglieder des Netzwerkes gewinnen kann. Die Sicherheit wird somit durch Verwirrung erzeugt. Im folgenden wird der Aufbau des Netzwerkes anhand eines Login-Vorgangs beschrieben. \\
+Auf der Startseite des Netzwerkes werden die Nutzer zunächst aufgefordert E-Mail Adresse und Passwort einzugeben, bevor sie zum zweiten Schritt der Authentifizierung gelangen. Hierfür muss jeder Nutzer bei der Registrierung eines, oder mehrere Authentifizierungsverfahren hinterlegen. Zur Auswahl stehen beispielsweise ein Code, welcher per SMS zugesandt wird, eine Push-Benachrichtigung am Mobiltelefon oder die Verwendung biometrischer Daten (z.B Fingerabdruck).\\
+Unabhängig davon, ob E-Mail Adresse, Passwort, die Wahl des zusätzlichen Verfahrens oder die Durchführung des gewählten Verfahrens korrekt waren, gelangt der Nutzer in das Netzwerk. Doch nur im Falle eines vollständig korrekten Authentifizierungsvorgangs befindet sich der Nutzer in seinem Account im "echten" Netzwerk. Andernfalls gelangt der Nutzer in ein täuschend echt aussehendes Fake-Profil, welches nur vom Inhaber als solches enttarnt werden kann. \todo[inline]{Bild des Loginvorgangs} Der Angreifer erfährt dadurch weder ob seine eingegebenen Angaben korrekt waren bzw. welche nicht korrekt waren, noch kann er sich sicher sein, ob er im echten Netzwerk ist. Sämtliche, für ihn sichtbaren Informationen sind folglich nicht verifizierbar und daher nahezu wertlos. \\
 Die größte Herausforderung bei der Umsetzung des Konzeptes stellt die Generierung des Fake-Netzwerkes dar. Hierfür wurden 4 unterschiedliche Umsetzungsvarianten definiert, welche im Folgenden beschrieben werden. \\
-In der ersten Variante, muss jeder Nutzer bei der Registrierung neben seinem echten Profil auch ein Fake Profil anlegen. Welche Informationen er hierfür verwendet, ist ihm überlassen. 
-\begin{minipage}{\columnwidth}
-%	\includegraphics[width=0.8\columnwidth]{Umsetzung1.jpeg}
-	\centering
-%	\captionof{figure}{Test}
-	\label{fig:ASIL}
-\end{minipage}
+In der ersten Variante, muss jeder Nutzer bei der Registrierung neben seinem echten Profil auch ein Fake Profil anlegen. Ob er hierbei korrekte oder falsche Angaben macht kann jeder Nutzer selbst entscheiden. Abbildung \ref{fig:Umsetzung1} zeigt ein Beispiel hierfür. 
+\begin{figure}[htbp]
+\includegraphics[width=0.8\columnwidth]{/Umsetzung1.png}
+\caption{User legt das Fake Profil selbst an}
+\label{fig:Umsetzung1}
+\end{figure}
+Ziel dieser Variante ist es, möglichst authentische Fake-Profile zu erstellen. Je authentischer diese auf einen Angreifer wirken, desto sicherer sind die "echten" Daten der Nutzer. \\
+In der zweiten Variante erstellt der Nutzer lediglich sein echtes Profil. Er kann jedoch für jede Information, beispielsweise bei seinem Namen, seinem Alter oder seinem Profilbild durch setzen eines Hakens entscheiden, ob diese Information für die Erstellung des Fake-Profils verwendet werden darf, oder nicht. Restliche Daten werden durch das System zufällig generiert. Abbildung \ref{fig:Umsetzung2} veranschaulicht diese Variante. 
+\begin{figure}[htbp]
+	\includegraphics[width=0.8\columnwidth]{/Umsetzung2.png}
+	\caption{Vom User ausgewählte Informationen werden für die Fake-Profile verwendet.}
+	\label{fig:Umsetzung2}
+\end{figure}
+Dadurch sollen durch die Zusatzangaben einerseits authentische Fake-Profile erzeugt werden können und andererseits der zeitliche Aufwand für die Nutzer reduziert werden. \\
+In Variante 3 verläuft der gesamte Vorgang automatisiert. Der User hat keinen Einfluss auf die Erstellung der Fake Profile. Sie werden vm System m Hintergrund generiert. Der Ablauf ist in Abbildung \ref{fig:Umsetzung3} dargestellt.
+\begin{figure}[htbp]
+	\includegraphics[width=0.8\columnwidth]{/Umsetzung3.png}
+	\caption{Fake-Profile werden vom System generiert.}
+	\label{fig:Umsetzung3}
+\end{figure}
 \\
-In der zweiten Variante erstellt der Nutzer lediglich sein echtes Profil. Er kann jedoch für jede Information, beispielsweise dem Namen, seinem Alter oder dem Profilbild durch setzen eines Hakens entscheiden, ob diese Information für die Erstellung des Fake-Profils verwendet werden darf, oder nicht. Restliche Daten werden durch das System zufällig generiert.  BILD \\
-In der dritten Variante werden alle Fake-Profile automatisch generiert. Die Nutzer können den Prozess hierbei nicht beeinflussen. BILD \\
-In der vierten Variante werden die Fake-Profile, analog zu Variante 3 automatisch generiert. Hierbei wird der Nutzer jedoch aufgefordert Bilder für die Fake-Profil Generierung zur Verfügung zu stellen. Dadurch soll erreicht werden, dass die Fake-Profile für einen Angreifer authentischer Wirken. BILD \\
-
+Variante 4 stellt eine Kombination aus den bisherigen drei Varianten dar. Die Fake-Profile werden, analog zu Variante 3 automatisch generiert. Es besteht jedch für jeden Nutzer die Möglichkeit Daten, wie beispielsweise Bilder für die Fake-Profil Generierung zur Verfügung zu stellen. Somit ist einserseits kein Nutzer gezwungen Daten bereit zu stellen, andererseits können authentischere Fake-Profile als z.B bei Variante 3 generiert werden.  
+\begin{figure}[htbp]
+	\includegraphics[width=0.8\columnwidth]{/Umsetzung4.png}
+	\caption{Fake-Profile werden vom System generiert. Der User kann freiwillig Daten zur Verfügung stellen.}
+	\label{fig:Umsetzung4}
+\end{figure}
 \section{Methodik}
 
 \subsection{Fokusgruppe}
