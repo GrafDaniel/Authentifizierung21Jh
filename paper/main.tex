@@ -42,8 +42,7 @@
 % re-using, if desired).  Use \emtpyauthor when submitting for review
 % so you remain anonymous.
 \def\plaintitle{Parallel World}
-\def\plainauthor{First Author, Second Author, Third Author,
-  Fourth Author, Fifth Author, Sixth Author}
+\def\plainauthor{Dimitrie Diez, Daniel Graf, Ludwig Wagner}
 \def\emptyauthor{}
 \def\plainkeywords{Authentifizierungsmechanismus; Fake-Profile; Authentifizierungskonzept; Parallel World\todo[inline]{Überarbeiten/ weitere ergänzen}}
 
@@ -229,6 +228,9 @@ Paper: Ausarbeitung welche Teilkonzepte am erfolgversprechendsten sind, welche s
 \subsubsection{Speichern des Logins}
 Mechanismen, die es erlauben Logins temporär zu speichern sind State of The Art. Diese Mechanismen müssen auch bei diesem Konzept angewendet werden um eine akzeptable Usability zu gewährleisten.
 \subsubsection{Integration in ein bestehendes Sozial Network statt Entwicklung eines neuen}
+\todo[inline]{
+What ist please ein Sozial Network... dann lieber Social Netzwerk
+}
 Da Nutzer sich nicht wegen dem Sicherheitskonzept in einem Netzwerk registrieren, sondern wegen Kontakten soll das Konzept in ein bestehendes Netzwerk integriert werden und kein neues Netzwerk entwickelt werden.
 \subsubsection{Klare Erläuterung des Sicherheitskonzeptes}
 Durch attraktiv gestaltete Grafiken, Illustrationen, Videos oder Tutorials muss der Benutzer in kurzer Zeit über die Vorteile des Konzepts informiert werden.
@@ -241,11 +243,17 @@ Dem Nutzer muss eine große Anzahl an hinterlegbaren Authentifizierungsmechanism
 \subsubsection{Kommunikation im Netzwerk}
 Die Kommunikation mit Fake Profilen muss möglich sein. Das suchen von Profilen muss möglich sein. Aus Fake Profilen müssen alle Aktionen möglich sein, die auch mit echten Profilen getätigt werden können.
 \section{Zusammenfassung und Fazit}
+Diese Arbeit beschäftigte sich mit der Umsetzung des Konzeptes aus der Sicht des Nutzers.
+Zusammenfassend lässt sich sagen, dass zwei wichtige Aspekte für die erfolgreiche Umsetzung dieses Konzeptes zu beachten sind. Zum einen ist es die möglichst einfache Einrichtung und Benutzung des Netzwerks durch den Nutzer. Dabei sollte der Nutzer möglichst wenig Einfluss in die Einrichtung der Sicherheit haben. Dadurch soll die Usability sichergestellt werden und gleichzeitig eine mögliche Fehleinrichtung durch den Nutzer verhindert werden. Die gewohnten Funktionen wie das Verschicken von Nachrichten oder  das Teilen von Bildern dürfen durch das neue Konzept nicht eingeschränkt werden. 
 
+Dem gegenüber steht die Generierung von Fakeprofilen. Der Erfolg dieses Konzeptes hängt maßgeblich von der Generierung von möglichst authentischen Profilen ab. Die echte Welt und die Parallelwelt sind keine eigenständigen Konstrukte, sondern müssen mit einander kommunizieren. So können sich zum Beispiel die echten Profile und die dazugehörigen Fake-Profile die öffentlichen Daten teilen. Dabei müssen klare Schnittstellen zwischen echter und Parallelwelt geschaffen werden. Letztendlich lässt sich sagen, dass dieses Konzept in bereits bestehende Netzwerke integriert werden muss. Es hat sich gezeigt, dass Nutzer nicht bereit wären sich nur wegen diesem Sicherheitskonzept in einem Netzwerk zu registrieren. 
 \todo[inline]{Fehlt: Zusammenfassung und Fazit}
 \section{Ausblick}
-\todo[inline]{Fehlt: Ausblick}
+Die Arbeit hat bei der Betrachtung des Konzeptes den Fokus auf den Nutzer gelegt. Es sind jedoch auch weiterführende Aufgaben bei der Umsetzung des Konzeptes notwendig. Das Angreifermodell muss genauer analysiert werden. Dabei gilt es zu betrachten, ob das Konzept robust gegen bereits bekannte Angriffsszenarien ist. Darüber hinaus ist es notwendig zu untersuchen, ob diese Konzept neue Angriffsszenarien eröffnet.
 
+Viele Fragen stellen sich jedoch erst bei der technischen Umsetzung des Konzeptes. Dafür ist es notwendig einen Prototypen zu erstellen. Die ausgearbeiteten Angriffsmodelle sowie die Useability müssen dann an diesem Prototypen getestet werden.
+
+\todo[inline]{Fehlt: QUELLEN}
 % REFERENCES FORMAT
 % References must be the same font size as other body text.
 %\bibliographystyle{SIGCHI-Reference-Format}
