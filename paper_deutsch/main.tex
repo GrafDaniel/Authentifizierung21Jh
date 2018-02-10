@@ -1,41 +1,78 @@
 \documentclass{sigchi}
 
+% Use this section to set the ACM copyright statement (e.g. for
+% preprints).  Consult the conference website for the camera-ready
+% copyright statement.
+
+% Copyright
+\CopyrightYear{2018}
+%\setcopyright{acmcopyright}
+\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+% DOI
+\doi{http://dx.doi.org/10.475/123_4}
+% ISBN
+\isbn{123-4567-24-567/08/06}
+%Conference
+\conferenceinfo{CHI'16,}{May 07--12, 2016, San Jose, CA, USA}
+%Price
+\acmPrice{\$15.00}
+
 % Use this command to override the default ACM copyright statement
 % (e.g. for preprints).  Consult the conference website for the
 % camera-ready copyright statement.
 
-%% EXAMPLE BEGIN -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
-% \toappear{Permission to make digital or hard copies of all or part of this work for personal or classroom use is      granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org. \\
-% {\emph{CHI'14}}, April 26--May 1, 2014, Toronto, Canada. \\
-% Copyright \copyright~2014 ACM ISBN/14/04...\$15.00. \\
-% DOI string from ACM form confirmation}
-%% EXAMPLE END -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
+%% HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP --
+%% Please note you need to make sure the copy for your specific
+%% license is used here!
+% \toappear{
+% Permission to make digital or hard copies of all or part of this work
+% for personal or classroom use is granted without fee provided that
+% copies are not made or distributed for profit or commercial advantage
+% and that copies bear this notice and the full citation on the first
+% page. Copyrights for components of this work owned by others than ACM
+% must be honored. Abstracting with credit is permitted. To copy
+% otherwise, or republish, to post on servers or to redistribute to
+% lists, requires prior specific permission and/or a fee. Request
+% permissions from \href{mailto:Permissions@acm.org}{Permissions@acm.org}. \\
+% \emph{CHI '16},  May 07--12, 2016, San Jose, CA, USA \\
+% ACM xxx-x-xxxx-xxxx-x/xx/xx\ldots \$15.00 \\
+% DOI: \url{http://dx.doi.org/xx.xxxx/xxxxxxx.xxxxxxx}
+% }
 
 % Arabic page numbers for submission.  Remove this line to eliminate
 % page numbers for the camera ready copy
 % \pagenumbering{arabic}
 
 % Load basic packages
-\usepackage{balance}  % to better equalize the last page
-\usepackage{graphicx} % for EPS, load graphicx instead 
+\usepackage{balance}       % to better equalize the last page
+\usepackage{graphics}      % for EPS, load graphicx instead 
+%\usepackage[T1]{fontenc}   % for umlauts and other diaeresis
+\usepackage{fontspec}
 \usepackage{txfonts}
 \usepackage{mathptmx}
-\usepackage{hyperref}
+\usepackage[pdflang={de-DE}]{hyperref}
 \usepackage{color}
 \usepackage{booktabs}
 \usepackage{textcomp}
-\usepackage{microtype} % Improved Tracking and Kerning
-\usepackage{ccicons}  % Cite your images correctly!
-\usepackage{float}
-\graphicspath{{figures/}}
 
-
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+% Some optional stuff you might like/need.
+\usepackage{microtype}        % Improved Tracking and Kerning
+% \usepackage[all]{hypcap}    % Fixes bug in hyperref caption linking
+\usepackage{ccicons}          % Cite your images correctly!
+\usepackage[utf8]{inputenc} % for a UTF8 editor only
 \usepackage[ngerman]{babel}
 
-%\usepackage[ansinew]{inputenc}
-%\usepackage[T3]{fontenc}
+% If you want to use todo notes, marginpars etc. during creation of
+% your draft document, you have to enable the "chi_draft" option for
+% the document class. To do this, change the very first line to:
+% "\documentclass[chi_draft]{sigchi}". You can then place todo notes
+% by using the "\todo{...}"  command. Make sure to disable the draft
+% option again before submitting your final document.
 \usepackage{todonotes}
 
 % Paper metadata (use plain text, for PDF inclusion and later
@@ -78,6 +115,7 @@
 %  pdfauthor={\plainauthor},
   pdfauthor={\emptyauthor},
   pdfkeywords={\plainkeywords},
+  pdfdisplaydoctitle=true, % For Accessibility
   bookmarksnumbered,
   pdfstartview={FitH},
   colorlinks,
@@ -86,6 +124,7 @@
   linkcolor=black,
   urlcolor=linkColor,
   breaklinks=true,
+  hypertexnames=false
 }
 
 % create a shortcut to typeset table headings
@@ -128,12 +167,14 @@ Es lohnt sich nicht ein eigenes Netzwerk mit dem Konzept zu entwickeln
 Viele Leute sind nicht bereit}
 \end{abstract}
 
-%\category{H.5.m.}{Information Interfaces and Presentation
-% (e.g. HCI)}{Miscellaneous} \category{See
-%  \url{http://acm.org/about/class/1998/} for the full list of ACM
-%  classifiers. This section is required.}{}{}
+\category{H.5.m.}{Information Interfaces and Presentation
+  (e.g. HCI)}{Miscellaneous} \category{See
+  \url{http://acm.org/about/class/1998/} for the full list of ACM
+  classifiers. This section is required.}{}{}
 
 \keywords{\plainkeywords}
+
+%%% BEGIN
 
 \section{Einleitung}
 \todo[inline]{Einleitung mit einer Statistik über Angriffe und Sicherheitslücken aktueller Social Media Plattformen, Identifikation des Problems bei aktuellen Authentifizierungsverfahren (Der Angreifer weiss, dass Login fehlgeschlagen ist)}
@@ -153,28 +194,28 @@ Unabhängig davon, ob E-Mail Adresse, Passwort, die Wahl des zusätzlichen Verfa
 Die größte Herausforderung bei der Umsetzung des Konzeptes stellt die Generierung des Fake-Netzwerkes dar. Hierfür wurden 4 unterschiedliche Umsetzungsvarianten definiert, welche im Folgenden beschrieben werden. \\
 In der ersten Variante, muss jeder Nutzer bei der Registrierung neben seinem echten Profil auch ein Fake Profil anlegen. Ob er hierbei korrekte oder falsche Angaben macht kann jeder Nutzer selbst entscheiden. Abbildung \ref{fig:Umsetzung1} zeigt ein Beispiel hierfür. 
 \begin{figure}[htbp]
-\includegraphics[width=0.8\columnwidth]{/Umsetzung1.PNG}
+\includegraphics[width=0.8\columnwidth]{figures/Umsetzung1.PNG}
 \caption{User legt das Fake Profil selbst an}
 \label{fig:Umsetzung1}
 \end{figure}
 Ziel dieser Variante ist es, möglichst authentische Fake-Profile zu erstellen. Je authentischer diese auf einen Angreifer wirken, desto sicherer sind die "echten" Daten der Nutzer. \\
 In der zweiten Variante erstellt der Nutzer lediglich sein echtes Profil. Er kann jedoch für jede Information, beispielsweise bei seinem Namen, seinem Alter oder seinem Profilbild durch setzen eines Hakens entscheiden, ob diese Information für die Erstellung des Fake-Profils verwendet werden darf, oder nicht. Restliche Daten werden durch das System zufällig generiert. Abbildung \ref{fig:Umsetzung2} veranschaulicht diese Variante. 
 \begin{figure}[htbp]
-	\includegraphics[width=0.8\columnwidth]{/Umsetzung2.PNG}
+	\includegraphics[width=0.8\columnwidth]{figures/Umsetzung2.PNG}
 	\caption{Vom User ausgewählte Informationen werden für die Fake-Profile verwendet.}
 	\label{fig:Umsetzung2}
 \end{figure}
 Dadurch sollen durch die Zusatzangaben einerseits authentische Fake-Profile erzeugt werden können und andererseits der zeitliche Aufwand für die Nutzer reduziert werden. \\
 In Variante 3 verläuft der gesamte Vorgang automatisiert. Der User hat keinen Einfluss auf die Erstellung der Fake Profile. Sie werden vm System m Hintergrund generiert. Der Ablauf ist in Abbildung \ref{fig:Umsetzung3} dargestellt.
 \begin{figure}[htbp]
-	\includegraphics[width=0.8\columnwidth]{/Umsetzung3.PNG}
+	\includegraphics[width=0.8\columnwidth]{figures/Umsetzung3.PNG}
 	\caption{Fake-Profile werden vom System generiert.}
 	\label{fig:Umsetzung3}
 \end{figure}
 \\
 Variante 4 stellt eine Kombination aus den bisherigen drei Varianten dar. Die Fake-Profile werden, analog zu Variante 3 automatisch generiert. Es besteht jedoch für jeden Nutzer die Möglichkeit Daten, wie beispielsweise Bilder für die Fake-Profil Generierung zur Verfügung zu stellen. Somit ist einerseits kein Nutzer gezwungen Daten bereit zu stellen, andererseits können authentischere Fake-Profile als z.B bei Variante 3 generiert werden. Eine Veranschaulichung dieser Umsetzungsvariante ist am Beispiel von Profilbildern in Abbildung \ref{fig:Umsetzung4} aufgeführt. 
 \begin{figure}[htbp]
-	\includegraphics[width=\columnwidth]{/Umsetzung4.PNG}
+	\includegraphics[width=\columnwidth]{figures/Umsetzung4.PNG}
 	\caption{Fake-Profile werden vom System generiert. Der User kann freiwillig Daten zur Verfügung stellen.}
 	\label{fig:Umsetzung4}
 \end{figure}
@@ -193,7 +234,7 @@ Insbesondere Aspekte, bei denen Uneinigkeit zwischen den Teilnehmern der Fokus G
 \label{Ergebnisse}
 In Abbildung \ref{fig:MindMap2} ist ein Ausschnitt aus den Ergebnissen der Fokus Gruppe und der anschließenden Einzelbefragungen zu sehen. Die gesamten Ergebnisse sind in einem MindMap im Anhang aufgeführt. Die wichtigsten Aspekte sind im folgenden genauer beschrieben. \todo[inline]{Mindmap in Anhang einfügen UND aufbereiten}
 \begin{figure*}[htbp]
-	\includegraphics[width=0.8\columnwidth]{/Social-Networks_2.png}
+	\includegraphics[width=0.8\columnwidth]{figures/Social-Networks_2.png}
 	\caption{Ausschnitt aus den Ergebnissen von Fokus Gruppe und Einzelbefragung}
 	\label{fig:MindMap2}
 \end{figure*}
@@ -254,10 +295,17 @@ Die Arbeit hat bei der Betrachtung des Konzeptes den Fokus auf den Nutzer gelegt
 Viele Fragen stellen sich jedoch erst bei der technischen Umsetzung des Konzeptes. Dafür ist es notwendig einen Prototypen zu erstellen. Die ausgearbeiteten Angriffsmodelle sowie die Useability müssen dann an diesem Prototypen getestet werden.
 
 \todo[inline]{Fehlt: QUELLEN}
+
+
+%%% END
+
+% BALANCE COLUMNS
+\balance{}
+
 % REFERENCES FORMAT
 % References must be the same font size as other body text.
-%\bibliographystyle{SIGCHI-Reference-Format}
-%\bibliography{sample}
+\bibliographystyle{SIGCHI-Reference-Format}
+\bibliography{sample}
 
 \end{document}
 
