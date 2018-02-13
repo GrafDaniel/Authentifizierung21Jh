@@ -14,13 +14,9 @@
 %\setcopyright{cagov}
 %\setcopyright{cagovmixed}
 % DOI
-\doi{http://dx.doi.org/10.475/123_4}
 % ISBN
-\isbn{123-4567-24-567/08/06}
 %Conference
-\conferenceinfo{CHI'16,}{May 07--12, 2016, San Jose, CA, USA}
 %Price
-\acmPrice{\$15.00}
 
 % Use this command to override the default ACM copyright statement
 % (e.g. for preprints).  Consult the conference website for the
@@ -81,7 +77,7 @@
 \def\plaintitle{Parallel World}
 \def\plainauthor{Dimitrie Diez, Daniel Graf, Ludwig Wagner}
 \def\emptyauthor{}
-\def\plainkeywords{Authentifizierungsmechanismus; Fake-Profile; Authentifizierungskonzept; Parallel World\todo[inline]{Überarbeiten/ weitere ergänzen}}
+\def\plainkeywords{Authentifizierung; Authentifizierungsmechanismus; Authentifizierungskonzept; Fake Profil; Parallel World; Always Login; Fake Welt; Soziales Netzwerk; Sicherheitskonzept}
 
 \def\plaingeneralterms{Documentation, Standardization}
 
@@ -160,45 +156,34 @@ Bei zahlreichen Onlineplattformen, wie beispielsweise Yahoo, SchülerVZ oder Son
 
 Somit fehlen Angreifern lediglich die Passwörter um in die Accounts zu gelangen. Angreifer versuchen häufig diese durch BruteForce Angriffe zu ermitteln.\cite{bruteForce}
 
-Dies ist möglich, da der Angreifer bei fehlerhaften Login Informationen informiert wird. Um dies zu verhindern wurde ein Konzept für einen Authentifizierungsvorgang entwickelt, bei dem der Angreifer genau diese Informationen nicht erhält. Das Konzept wurde für Soziale Netzwerke ausgelegt, ist jedoch vielseitig, beispielsweise auch für E-Mail Accounts, verwendbar. Bei einem fehlgeschlagenen Authentifizierungsvorgang wird ein erfolgreicher Login, durch die Anzeige eines täuschend echt aussehenden Fake-Kontos, vorgetäuscht. \todo[inline]{täuschend echt vorgetäuscht} 
+Dies ist möglich, da der Angreifer bei fehlerhaften Login Informationen informiert wird. Um dies zu verhindern wurde ein Konzept für einen Authentifizierungsvorgang entwickelt, bei dem der Angreifer genau diese Informationen nicht erhält. Das Konzept wurde für Soziale Netzwerke ausgelegt, ist jedoch vielseitig, beispielsweise auch für E-Mail Accounts, verwendbar. Bei einem fehlgeschlagenen Authentifizierungsvorgang wird ein erfolgreicher Login, durch die Anzeige eines möglichst realen Fake-Kontos, vorgetäuscht.
 
 Für die Umsetzung des Konzepts wurden verschiedene Handlungsempfehlungen erarbeitet und limitierende Faktoren aufgezeigt. Basierend auf diesen Aspekten erfolgt eine Bewertung des Konzepts hinsichtlich Sicherheit, Umsetzbarkeit und Benutzbarkeit. 
-\todo[inline]{Paper: Aspekte die berücksichtigt werden müssen damit man es bauen kann bzw. Empfehlungen zum bauen des Projekts (Bewertung des Konzept im Paper)
-	Paper: Ausarbeitung welche Teilkonzepte am erfolgversprechendsten sind, welche sind nicht machbar; AUS BENUTZERSICHT
-  KONZEPT dagegen ...   Durch ein geschicktes Konzept wird dieser Angriffsvektor unterbunden. Konzept ursprünglich für Social Network jedoch vielseitig verwendbar
-Es lohnt sich nicht ein eigenes Netzwerk mit dem Konzept zu entwickeln
-Viele Leute sind nicht bereit
-UNBEDINGT DEUTLICH REINSCHREIBEN DASS WIR NUR USABILITY SICHT UND KEINE ANGREIFERSICHT IM DETAIL ANSCHAUEN}
 \end{abstract}
 
-\category{H.5.m.}{Information Interfaces and Presentation
-  (e.g. HCI)}{Miscellaneous} \category{See
-  \url{http://acm.org/about/class/1998/} for the full list of ACM
-  classifiers. This section is required.}{}{}
+\category{K.6.5}{Management of Computing and Information Systems}{Security and Protection} 
+\category{K.4.2}{Computers and Society}{Social Issues}
 
 \keywords{\plainkeywords}
 
 %%% BEGIN
 
 \section{Einleitung}
-In der Vergangenheit wurden zahlreich schwerwiegende Sicherheitslücken auf verschiedenen Online Plattformen für soziale Medien genutzt, um private Daten der Benutzer abzugreifen und die Accounts zur massiven Verbreitung von Werbung zu nutzen. Durch die steigende Aktivität der Hackerszene kam es über die letzten Jahre immer fortlaufend zu einem Anstieg der Cyberkriminalität. 
+In der Vergangenheit wurden zahlreich schwerwiegende Sicherheitslücken auf verschiedenen Online Plattformen für soziale Medien genutzt, um private Daten der Benutzer abzugreifen und die Accounts zur massiven Verbreitung von Werbung zu nutzen. Durch die steigende Aktivität der Hackerszene kam es über die letzten Jahre immer fortlaufend zu einem Anstieg der Cyberkriminalität. \cite{bkaInternertkrimi}
 
-Trotz dieser Tatsachen machen sich nur wenige Benutzer Gedanken über den Schutz ihres Accounts. Viele Benutzer sind gar nicht erst bereit, zusätzlichen Aufwand zu betreiben, um einen besseren Schutz der Benutzerkonten zu erreichen. Selbst wenn erweiterte Schutzmethoden wie z.B. Two-Factor-Authenfication zur Verfügung stehen, werden diese meist nur von wenigen Nutzern aktiv genutzt. Der Nutzungskomfort eines einfachen Logins steht im Vordergrund. Dies zeigt, dass es vor allem in der Verantwortung der Betreiber von Plattformen liegt, neue Authentifizierungsverfahren zu entwickeln, die ohne störenden Mehraufwand einen besseren Schutz gewährleisten.
+Trotz dieser Tatsachen machen sich nur wenige Benutzer Gedanken über den Schutz ihres Accounts. \cite{benutzerGedanken} Viele Benutzer sind gar nicht erst bereit, zusätzlichen Aufwand zu betreiben, um einen besseren Schutz der Benutzerkonten zu erreichen. Selbst wenn erweiterte Schutzmethoden wie z.B. Two-Factor-Authenfication zur Verfügung stehen, werden diese meist nur von wenigen Nutzern aktiv genutzt. \cite{benutzungTwoFactor} Der Nutzungskomfort eines einfachen Logins steht im Vordergrund. Dies zeigt, dass es vor allem in der Verantwortung der Betreiber von Plattformen liegt, neue Authentifizierungsverfahren zu entwickeln, die ohne störenden Mehraufwand einen besseren Schutz gewährleisten.
 
-Der größte Angriffspunkt eines regulären Logins besteht darin, dass der Angreifer darüber informiert wird, wenn der Login fehlgeschlagen ist. So lässt sich der Login mit verschiedenen Passwörtern wiederholen, bis das richtige Passwort erraten wurde. Durch den von den Nutzern geschätzten Komfort, werden meist einfache Passwörter gewählt, die durch einen Brute Force Angriff schnell erraten werden können. 
+Der größte Angriffspunkt eines regulären Logins besteht darin, dass der Angreifer darüber informiert wird, wenn der Login fehlgeschlagen ist. So lässt sich der Login mit verschiedenen Passwörtern wiederholen, bis das richtige Passwort erraten wurde. Durch den von den Nutzern geschätzten Komfort, werden meist einfache Passwörter gewählt, die durch einen Brute Force Angriff schnell erraten werden können. \cite{benutzerGedanken}
 
 Um nun die Sicherheit von sozialen Netzwerken zu erhöhen, ohne den Nutzer mit einem Mehraufwand zu belasten, muss genau an dieser Stelle ein neues Konzept erarbeitet werden.
 
-\todo[inline]{Einleitung mit einer Statistik über Angriffe und Sicherheitslücken aktueller Social Media Plattformen, Identifikation des Problems bei aktuellen Authentifizierungsverfahren (Der Angreifer weiss, dass Login fehlgeschlagen ist)}
 
-\section{Weiterführende Literatur}
-%\bibentry{passwordsAreDead}
+\section{Sachverwandte Arbeiten}
+Das Thema wurde bereits oft von anderen Autoren untersucht und behandelt. Viele Arbeiten zeigen dabei, dass die alleine Sicherheit durch einen Login mit Benutzername und Passwort nicht ausreichend sind. \cite{passwordsAreDead} \cite{taneski2014password}
 
-\todo[inline]{Literatur zu diesem Thema und beschreiben des Ergebnisses in einem bis zwei Sätzen. Was haben andere rausgefunden?
+Infolge dessen wurde von ebenso vielen Autoren auf vielseitige Art und Weise untersucht, wie sich die Sicherheit verbessern lässt. Dabei wird der Fokus in den meisten Arbeiten auf alternative oder erweiterte Mechanismen zur Authentifizierung der Benutzer gelegt. Die Benutzerfreundlichkeit gerät dabei oft in den Hintergrund. \cite{karapanos2015sound} \cite{amin2017security} \cite{jarecki2018two}
 
-
-Überarbeitung der Copy Right (siehe anfang des tex Dokuments)
-Überarbeitung der Umlaute in den Kapitelüberschriften}
+Diese Arbeit setzt an einer anderen Stelle an, um weiterhin die Benutzung der gewohnten Login Mechanismen zu ermöglichen, dabei aber die Sicherheit durch Verwirrung möglicher Angreifer zu erzielen.
 
 \section{Beschreibung des Konzepts}
 \label{Konzept}
@@ -248,11 +233,11 @@ Die Fokus Gruppe bestand aus dem Projekt Team und 8 Studenten der Hochschule Mü
  
 \subsection{Einzelbefragungen}
 \label{Einzelbefragung}
-Insbesondere Aspekte, bei denen Uneinigkeit zwischen den Teilnehmern der Fokus Gruppe geherrscht hat, wurden im Zuge von Einzelbefragungen vertieft. Hierfür wurden insgesamt 9 Befragungen durchgeführt. Der gesamte Fragebogen ist im Anhang angefügt. \todo[inline]{Fragebogen in Anhang}
+Insbesondere Aspekte, bei denen Uneinigkeit zwischen den Teilnehmern der Fokus Gruppe geherrscht hat, wurden im Zuge von Einzelbefragungen vertieft. Hierfür wurden insgesamt 9 Befragungen durchgeführt. Der gesamte Fragebogen ist im Anhang in Abbildung \ref{fig:Fragebogen} angefügt.
 
 \subsection{Ergebnisse}
 \label{Ergebnisse}
-In Abbildung \ref{fig:MindMap2} ist ein Ausschnitt aus den Ergebnissen der Fokus Gruppe und der anschließenden Einzelbefragungen zu sehen. Die gesamten Ergebnisse sind in einem MindMap geclustert im Anhang aufgeführt. Die wichtigsten Aspekte sind im folgenden genauer beschrieben. \todo[inline]{Mindmap in Anhang einfügen UND aufbereiten}
+In Abbildung \ref{fig:MindMap2} ist ein Ausschnitt aus den Ergebnissen der Fokus Gruppe und der anschließenden Einzelbefragungen zu sehen. Die gesamten Ergebnisse sind in einem MindMap geclustert im Anhang aufgeführt. Die wichtigsten Aspekte sind im folgenden genauer beschrieben. 
 \begin{figure*}[htbp]
 	\centering
 	\includegraphics[width=1.5\columnwidth]{figures/Social-Networks_2.png}
@@ -286,9 +271,6 @@ Neben den erläuterten Ergebnissen müssen für die Umsetzung des Konzepts auch 
 \subsection{Handlungsempfehlungen}
 \label{Handlungsempfehlung}
 Aus den Ergebnissen der Fokusgruppe, der Einzelbefragungen sowie der diskutierten Aspekte werden nun Handlungsempfehlungen für die Umsetzung des Konzepts herausgearbeitet.
-\todo[inline]{Lösungsansätze der vorher beschriebenen Probleme vorstellen. + Diskussion der Umsetzbarkeit
-Paper: Aspekte die berücksichtigt werden müssen damit man es bauen kann bzw. Empfehlungen zum bauen des Projekts (Bewertung des Konzept im Paper)
-Paper: Ausarbeitung welche Teilkonzepte am erfolgversprechendsten sind, welche sind nicht machbar}
 
 \subsubsection{Speichern des Logins}
 Viele Teilnehmer sind nicht bereit viel Zeit in den Authentifizierungsprozess zu investieren. Mechanismen, die es erlauben Logins temporär zu speichern sind Stand der Technik. Diese Mechanismen müssen auch bei diesem Konzept angewendet werden um eine akzeptable Usability zu gewährleisten.
@@ -314,11 +296,8 @@ Dem gegenüber steht die Generierung von Fakeprofilen. Der Erfolg dieses Konzept
 \section{Ausblick}
 Die Arbeit hat bei der Betrachtung des Konzeptes den Fokus auf den Nutzer gelegt. Es sind jedoch auch weiterführende Aufgaben für die Umsetzung des Konzeptes notwendig. Das Angreifermodell muss genauer analysiert werden. Dabei gilt es zu betrachten, ob das Konzept robust gegen bereits bekannte Angriffsszenarien ist. Darüber hinaus ist es notwendig zu untersuchen, ob diese Konzept neue Angriffsszenarien eröffnet. So könnte ein neues Angriffszenario darin bestehen, durch die mutwillige Erzeugung von zahllosen Fake-Profilen das Netzwerk zu überlasten. 
 
-
 Viele Fragen stellen sich jedoch erst während der technischen Umsetzung des Konzeptes. Dafür ist es notwendig einen Prototypen zu erstellen. Die ausgearbeiteten Angriffsmodelle sowie die Usability müssen dann an diesem Prototypen getestet und im Zuge weiterer Studien analysiert und verifiziert werden.
 
-
-\todo[inline]{Fehlt: QUELLEN}
 
 
 %%% END
@@ -333,13 +312,24 @@ Viele Fragen stellen sich jedoch erst während der technischen Umsetzung des Kon
 
 
 \clearpage
+\onecolumn
 \section{Anhang}
-\begin{figure}[h]
+\begin{figure*}[h]
 	\centering
-	\includegraphics[width=2\columnwidth]{figures/Social-Networks.png}
+	\includegraphics[width=\columnwidth]{figures/Social-Networks.png}
 	\caption{Ergebnisse der Fokus Gruppe und der Einzelbefragung}
 	\label{fig:MindMapAnhang}
-\end{figure}
+\end{figure*}
+\begin{figure*}[h]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{figures/Fragebogen.pdf}
+	\caption{Fragebogen für die Einzelbefragungen}
+	\label{fig:Fragebogen}
+\end{figure*}
+
+
+
+
 
 \end{document}
 
