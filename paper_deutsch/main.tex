@@ -31,6 +31,8 @@
 % page numbers for the camera ready copy
 % \pagenumbering{arabic}
 
+\RequirePackage{luatex85}
+
 % Load basic packages
 \usepackage{balance}       % to better equalize the last page
 \usepackage{graphics}      % for EPS, load graphicx instead 
@@ -136,14 +138,15 @@ Bei zahlreichen Onlineplattformen, wie beispielsweise Yahoo, SchülerVZ oder Son
 
 In diesen Fällen fehlen Angreifern lediglich die Passwörter um in die Accounts zu gelangen. Diese versuchen Angreifer häufig durch Brute-Force Angriffe zu ermitteln.\cite{bruteForce}
 
-Der Erfolg dieser Methode basiert darauf, dass der Angreifer bei fehlerhaften Login Informationen informiert wird. Um dies zu verhindern wurde ein Konzept für einen Authentifizierungsvorgang entwickelt, bei dem der Angreifer genau diese Informationen nicht erhält. Das Konzept wurde für Soziale Netzwerke ausgelegt, ist jedoch vielseitig, beispielsweise auch für E-Mail Accounts, verwendbar. Bei einem fehlgeschlagenen Authentifizierungsvorgang wird ein erfolgreicher Login, durch die Anzeige eines möglichst realen Fake-Kontos, vorgetäuscht.
+Der Erfolg dieser Methode basiert darauf, dass der Angreifer bei fehlerhaften Login Informationen informiert wird. Um dies zu verhindern wurde ein Konzept für einen Authentifizierungsvorgang entwickelt, bei dem der Angreifer genau diese Informationen nicht erhält. Das Konzept wurde für Soziale Netzwerke ausgelegt, ist jedoch vielseitig, beispielsweise auch für E-Mail Accounts, verwendbar. Bei einem fehlgeschlagenen Authentifizierungsvorgang wird ein erfolgreicher Login durch die Anzeige eines möglichst realen Fake-Kontos vorgetäuscht.
 
-Für die Umsetzung des Konzepts wurden verschiedene Handlungsempfehlungen erarbeitet und limitierende Faktoren aufgezeigt. Basierend auf diesen Aspekten erfolgt eine Bewertung des Konzepts hinsichtlich Sicherheit, Umsetzbarkeit und Benutzbarkeit. 
+Um das Konzept zu bewerten und zu verfeinern, wurde eine Gruppenbefragung durchgeführt und mit Hilfe der gewonnenen Erkenntnisse ein Schema für Einzelbefragungen erarbeitet. Aus den anschließenden Einzelbefragungen ging hervor, welche Punkte bei der Umsetzung zu beachten sind, um eine gute Akzeptanz der Benutzer zu erreichen. Es hat sich ergeben, dass es wichtig ist, den Fokus auf Benutzerfreundlichkeit zu legen, um diese Akzeptanz zu erreichen.
+
+Darauf basierend wurden für die Umsetzung des Konzepts verschiedene Handlungsempfehlungen erarbeitet und limitierende Faktoren aufgezeigt. Anschließend erfolgt eine Bewertung des Konzepts hinsichtlich Sicherheit, Umsetzbarkeit und Benutzbarkeit. 
 \end{abstract}
 
 %\category{K.6.5}{Management of Computing and Information Systems}{Security and Protection} 
 %\category{K.4.2}{Computers and Society}{Social Issues}
-\todo[inline]{Abklären in der Gruppe ob nicht mehr Ergebnisse ins abstract müssen, klare Aussage, dass Fokus auf USABILITY liegt}
 %\keywords{\plainkeywords}
 
 %%% BEGIN
@@ -163,8 +166,7 @@ Das Thema wurde bereits in mehreren Arbeiten unterschiedlicher Autoren untersuch
 
 Infolge dessen wurde von ebenso vielen Autoren auf vielseitige Art und Weise untersucht, wie sich die Sicherheit verbessern lässt. Dabei wird der Fokus in den meisten Arbeiten auf alternative oder erweiterte Mechanismen zur Authentifizierung der Benutzer gelegt. Die Benutzerfreundlichkeit gerät dabei oft in den Hintergrund. \cite{karapanos2015sound} \cite{amin2017security} \cite{jarecki2018two}
 
-Diese Arbeit setzt an einer anderen Stelle an, um weiterhin die Benutzung der gewohnten Login Mechanismen zu ermöglichen, dabei aber die Sicherheit durch Verwirrung möglicher Angreifer zu erzielen.
-\todo[inline]{Klarere Formulierung: Mittelweg zwischen minimalen Mehraufwand und maximaler Sicherheit damit}
+Diese Arbeit setzt an einer anderen Stelle an und nimmt es sich zum Ziel, einen idealen Mittelweg zwischen minimalem Mehraufwand und maximaler Sicherheit zu erreichen. Die gewohnte Benutzerfreundlichkeit wird durch die Nutzung der gewohnten Login Mechanismen sichergestellt, während die Sicherheit durch Verwirrung möglicher Angreifer erzielt wird. 
 
 \section{Beschreibung des Konzepts}
 \label{Konzept}
