@@ -150,43 +150,45 @@
 \maketitle
 
 \begin{abstract}
-In der heutigen Zeit gibt es viele verschiedene Authentifizierungsverfahren, die den Menschen vertraut sind. Der Mensch nutzt heute verschiedene Plattformen und Devices um Informationen aufzubewahren oder mit anderen Personen zu teilen. Der Zugang zu diesen Daten muss durch Authentifizierungsverfahren bestmöglich geschützt werden. Die am häufigsten verwendeten Methoden sind E-Mail Adresse und Passwort.\cite{passwordsCommon}
+In der heutigen Zeit existieren zahlreiche unterschiedliche Authentifizierungsverfahren, die den Menschen vertraut sind. Der Mensch nutzt heute verschiedene Plattformen und Devices um Informationen aufzubewahren oder mit anderen Personen zu teilen. Der Zugang zu diesen Daten muss durch Authentifizierungsverfahren bestmöglich geschützt werden. Die am häufigsten verwendete Methode ist E-Mail Adresse und Passwort.\cite{passwordsCommon}
 
 Bei zahlreichen Onlineplattformen, wie beispielsweise Yahoo, SchülerVZ oder Sony wurden Millionen Kundendatensätze gestohlen und im Darknet veröffentlicht.\cite{darknetYahoo}
 
-Somit fehlen Angreifern lediglich die Passwörter um in die Accounts zu gelangen. Angreifer versuchen häufig diese durch BruteForce Angriffe zu ermitteln.\cite{bruteForce}
+In diesen Fällen fehlen Angreifern lediglich die Passwörter um in die Accounts zu gelangen. Diese versuchen Angreifer häufig durch Brute-Force Angriffe zu ermitteln.\cite{bruteForce}
 
-Dies ist möglich, da der Angreifer bei fehlerhaften Login Informationen informiert wird. Um dies zu verhindern wurde ein Konzept für einen Authentifizierungsvorgang entwickelt, bei dem der Angreifer genau diese Informationen nicht erhält. Das Konzept wurde für Soziale Netzwerke ausgelegt, ist jedoch vielseitig, beispielsweise auch für E-Mail Accounts, verwendbar. Bei einem fehlgeschlagenen Authentifizierungsvorgang wird ein erfolgreicher Login, durch die Anzeige eines möglichst realen Fake-Kontos, vorgetäuscht.
+Der Erfolg dieser Methode basiert darauf, dass der Angreifer bei fehlerhaften Login Informationen informiert wird. Um dies zu verhindern wurde ein Konzept für einen Authentifizierungsvorgang entwickelt, bei dem der Angreifer genau diese Informationen nicht erhält. Das Konzept wurde für Soziale Netzwerke ausgelegt, ist jedoch vielseitig, beispielsweise auch für E-Mail Accounts, verwendbar. Bei einem fehlgeschlagenen Authentifizierungsvorgang wird ein erfolgreicher Login, durch die Anzeige eines möglichst realen Fake-Kontos, vorgetäuscht.
 
 Für die Umsetzung des Konzepts wurden verschiedene Handlungsempfehlungen erarbeitet und limitierende Faktoren aufgezeigt. Basierend auf diesen Aspekten erfolgt eine Bewertung des Konzepts hinsichtlich Sicherheit, Umsetzbarkeit und Benutzbarkeit. 
 \end{abstract}
 
 \category{K.6.5}{Management of Computing and Information Systems}{Security and Protection} 
 \category{K.4.2}{Computers and Society}{Social Issues}
-
+\todo[Inline]{Abklären in der Gruppe ob nicht mehr Ergebnisse ins abstract müssen}
 \keywords{\plainkeywords}
 
 %%% BEGIN
 
 \section{Einleitung}
-In der Vergangenheit wurden zahlreich schwerwiegende Sicherheitslücken auf verschiedenen Online Plattformen für soziale Medien genutzt, um private Daten der Benutzer abzugreifen und die Accounts zur massiven Verbreitung von Werbung zu nutzen. Durch die steigende Aktivität der Hackerszene kam es über die letzten Jahre immer fortlaufend zu einem Anstieg der Cyberkriminalität. \cite{bkaInternertkrimi}
+In der Vergangenheit wurden häufig schwerwiegende Sicherheitslücken auf verschiedenen Online Plattformen für soziale Medien genutzt, um private Daten der Benutzer abzugreifen und die Accounts zur massiven Verbreitung von Werbung zu nutzen. Durch die steigende Aktivität der Hackerszene kam es in den letzten Jahren fortlaufend zu einem Anstieg der Cyberkriminalität. \cite{bkaInternertkrimi}
 
 Trotz dieser Tatsachen machen sich nur wenige Benutzer Gedanken über den Schutz ihres Accounts. \cite{benutzerGedanken} Viele Benutzer sind gar nicht erst bereit, zusätzlichen Aufwand zu betreiben, um einen besseren Schutz der Benutzerkonten zu erreichen. Selbst wenn erweiterte Schutzmethoden wie z.B. Two-Factor-Authenfication zur Verfügung stehen, werden diese meist nur von wenigen Nutzern aktiv genutzt. \cite{benutzungTwoFactor} Der Nutzungskomfort eines einfachen Logins steht im Vordergrund. Dies zeigt, dass es vor allem in der Verantwortung der Betreiber von Plattformen liegt, neue Authentifizierungsverfahren zu entwickeln, die ohne störenden Mehraufwand einen besseren Schutz gewährleisten.
 
-Der größte Angriffspunkt eines regulären Logins besteht darin, dass der Angreifer darüber informiert wird, wenn der Login fehlgeschlagen ist. So lässt sich der Login mit verschiedenen Passwörtern wiederholen, bis das richtige Passwort erraten wurde. Durch den von den Nutzern geschätzten Komfort, werden meist einfache Passwörter gewählt, die durch einen Brute Force Angriff schnell erraten werden können. \cite{benutzerGedanken}
+Der größte Angriffspunkt eines regulären Logins besteht darin, dass der Angreifer darüber informiert wird, wenn der Login fehlgeschlagen ist. So lässt sich der Login mit verschiedenen Passwörtern wiederholen, bis das richtige Passwort erraten wurde. Durch den von den Nutzern geschätzten Komfort, werden meist einfache Passwörter gewählt, die durch einen Brute-Force Angriff schnell erraten werden können. \cite{benutzerGedanken}
 
 Um nun die Sicherheit von sozialen Netzwerken zu erhöhen, ohne den Nutzer mit einem Mehraufwand zu belasten, muss genau an dieser Stelle ein neues Konzept erarbeitet werden.
 
 
 \section{Sachverwandte Arbeiten}
-Das Thema wurde bereits oft von anderen Autoren untersucht und behandelt. Viele Arbeiten zeigen dabei, dass die alleine Sicherheit durch einen Login mit Benutzername und Passwort nicht ausreichend sind. \cite{passwordsAreDead} \cite{taneski2014password}
+Das Thema wurde bereits in mehreren Arbeiten unterschiedlicher Autoren untersucht und behandelt. Viele Arbeiten zeigen dabei, dass die Sicherheit durch einen Login mit Benutzername und Passwort nicht ausreichend ist. \cite{passwordsAreDead} \cite{taneski2014password}
 
 Infolge dessen wurde von ebenso vielen Autoren auf vielseitige Art und Weise untersucht, wie sich die Sicherheit verbessern lässt. Dabei wird der Fokus in den meisten Arbeiten auf alternative oder erweiterte Mechanismen zur Authentifizierung der Benutzer gelegt. Die Benutzerfreundlichkeit gerät dabei oft in den Hintergrund. \cite{karapanos2015sound} \cite{amin2017security} \cite{jarecki2018two}
 
 Diese Arbeit setzt an einer anderen Stelle an, um weiterhin die Benutzung der gewohnten Login Mechanismen zu ermöglichen, dabei aber die Sicherheit durch Verwirrung möglicher Angreifer zu erzielen.
+\todo[inline]{Klarere Formulierung: Mittelweg zwischen minimalen Mehraufwand und maximaler Sicherheit damit}
 
 \section{Beschreibung des Konzepts}
 \label{Konzept}
+\todo[inline]{Schreibweisen einheitlich: FokusGruppe, FakeProfil, FakeNetzwerk, Brute-Force bereits korrigiert}
 Kernpunkt des Konzept ist die Erschaffung eines parallelen Fake-Netzwerkes. Dadurch soll verhindert werden, dass ein Angreifer in das Netzwerk gelangt oder Informationen über die Mitglieder des Netzwerkes gewinnen kann. Die Sicherheit wird somit durch Verwirrung erzeugt. Im folgenden wird der Aufbau des Netzwerkes anhand eines Login-Vorgangs beschrieben. \\
 Auf der Startseite des Netzwerkes werden die Nutzer zunächst aufgefordert E-Mail Adresse und Passwort einzugeben, bevor sie zum zweiten Schritt der Authentifizierung gelangen. Hierfür muss jeder Nutzer bei der Registrierung eines, oder mehrere Authentifizierungsverfahren hinterlegen. Zur Auswahl stehen beispielsweise ein Code, welcher per SMS zugesandt wird, eine Push-Benachrichtigung am Mobiltelefon oder die Verwendung biometrischer Daten (z.B Fingerabdruck).\\
 Unabhängig davon, ob E-Mail Adresse, Passwort, die Wahl des zusätzlichen Verfahrens oder die Durchführung des gewählten Verfahrens korrekt waren, gelangt der Nutzer in das Netzwerk. Doch nur im Falle eines vollständig korrekten Authentifizierungsvorgangs befindet sich der Nutzer in seinem Account im \glqq echten\grqq Netzwerk. Andernfalls gelangt der Nutzer in ein täuschend echt aussehendes Fake-Profil, welches nur vom Inhaber als solches enttarnt werden kann. Der Login Vorgang ist in Abbildung \ref{fig:Login} aufgeführt. 
@@ -211,7 +213,7 @@ In der zweiten Variante erstellt der Nutzer lediglich sein echtes Profil. Er kan
 	\label{fig:Umsetzung2}
 \end{figure}
 Dadurch sollen durch die Zusatzangaben einerseits authentische Fake-Profile erzeugt werden können und andererseits der zeitliche Aufwand für die Nutzer reduziert werden. \\
-In Variante 3 verläuft der gesamte Vorgang automatisiert. Der User hat keinen Einfluss auf die Erstellung der Fake Profile. Sie werden vm System m Hintergrund generiert. Der Ablauf ist in Abbildung \ref{fig:Umsetzung3} dargestellt.
+In Variante 3 verläuft der gesamte Vorgang automatisiert. Der User hat keinen Einfluss auf die Erstellung der Fake Profile. Sie werden vom System im Hintergrund generiert. Der Ablauf ist in Abbildung \ref{fig:Umsetzung3} dargestellt.
 \begin{figure}[htbp]
 	\includegraphics[width=0.8\columnwidth]{figures/Umsetzung3.PNG}
 	\caption{Fake-Profile werden vom System generiert.}
@@ -225,7 +227,7 @@ Variante 4 stellt eine Kombination aus den bisherigen drei Varianten dar. Die Fa
 	\label{fig:Umsetzung4}
 \end{figure}
 \section{Methodik}
-Für eine Diskussion, welche der Varianten bei Nutzern bevorzugt werden könnte und bei welchen Teilaspekten des Konzepts es möglicherweise Probleme bei der Umsetzung geben könnte, wurde eine Fokus Gruppe organisiert. Basierend auf den Ergebnissen der Fokus Gruppe wurden interessante Aspekte im Zuge einer Umfrage qualitativ vertieft. Sowohl für die Fokus Gruppe, als auch für die Umfrage wurden ausschließlich Personen in Betracht gezogen, welche mindestens ein soziales Netzwerk aktiv nutzen. Dadurch soll eine erhöhte Vergleichbarkeit zwischen dem Sicherheitskonzept herkömmlicher Netzwerke und dem in Kapitel \ref{Konzept} beschriebenen Konzept erzielt werden. In diesem Kapitel werden zunächst der Aufbau der Fokusgruppe (vgl. Abschnitt \ref{Fokusgruppe}) und der Einzelbefragungen (vgl. Abschnitt \ref{Einzelbefragung}) erläutert. Anschließend werden im Abschnitt \ref{Ergebnisse} die Ergebnisse von beiden zusammengefasst. Im Abschnitt \ref{Diskussion} werden mögliche Herausforderungen für die Umsetzung des Konzepts diskutiert, bevor schließlich im Abschnitt \ref{Handlungsempfehlung} konkrete Handlungsempfehlungen für die Umsetzung beschrieben werden.
+Für eine Diskussion, welche der Varianten bei Nutzern bevorzugt werden könnte und bei welchen Teilaspekten des Konzepts es möglicherweise Probleme bei der Umsetzung geben könnte, wurde eine Fokus Gruppe organisiert. Basierend auf den Ergebnissen der Fokus Gruppe wurden interessante Aspekte im Zuge einer Umfrage qualitativ vertieft. Sowohl für die Fokus Gruppe, als auch für die Umfrage wurden ausschließlich Personen in Betracht gezogen, welche mindestens ein soziales Netzwerk aktiv nutzen. Dadurch soll eine erhöhte Vergleichbarkeit zwischen dem Sicherheitskonzept herkömmlicher Netzwerke und dem im vorherigen Kapitel beschriebenen Konzept erzielt werden. In diesem Kapitel werden zunächst der Aufbau der Fokusgruppe und der Einzelbefragungen erläutert. Anschließend werden die Ergebnisse von beiden zusammengefasst. Basierend darauf erfolgt eine Diskussion potenzieller Herausforderungen bei der Umsetzung des Konzepts. Abschließend werden konkrete Handlungsempfehlungen für die Umsetzung beschrieben.
 
 \subsection{Fokusgruppe}
 \label{Fokusgruppe}
@@ -234,6 +236,7 @@ Die Fokus Gruppe bestand aus dem Projekt Team und 8 Studenten der Hochschule Mü
 \subsection{Einzelbefragungen}
 \label{Einzelbefragung}
 Insbesondere Aspekte, bei denen Uneinigkeit zwischen den Teilnehmern der Fokus Gruppe geherrscht hat, wurden im Zuge von Einzelbefragungen vertieft. Hierfür wurden insgesamt 9 Befragungen durchgeführt. Der gesamte Fragebogen ist im Anhang in Abbildung \ref{fig:Fragebogen} angefügt.
+\todo[inline]{besser formulieren}
 
 \subsection{Ergebnisse}
 \label{Ergebnisse}
